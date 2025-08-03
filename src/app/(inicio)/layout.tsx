@@ -1,11 +1,16 @@
+"use client";
 import { Header } from "@components/core/header";
 import { Sidebar } from "@components/core/sidebar";
 import { Title } from "@components/core/title";
 import { MENU_RESOURCES_CONFIGS } from "@config/menu";
 import { ReactNode } from "react";
 import * as styles from "./styles.css";
+import { useCentralStore } from "../../presentation/store/central.store";
 
-export default function HomeLayout({ children }: { children: ReactNode }) {
+export default function HomeLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
+  const { count } = useCentralStore((state) => state);
   return (
     <main className={styles.homeLayoutStyle}>
       <Sidebar.Root>
@@ -15,7 +20,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
         <Header.Root>
           <Header.LeftGroup className={styles.headerGroupStyles}>
             <Title.Root size="small">
-              <Title.Text>Centrais </Title.Text>
+              <Title.Text>Centrais : {count}</Title.Text>
             </Title.Root>
           </Header.LeftGroup>
         </Header.Root>
