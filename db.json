@@ -47,12 +47,6 @@
       "name": "Central 8",
       "mac": "12:23:34:45:56:67",
       "modelId": 2
-    },
-    {
-      "id": "8274",
-      "name": "Central 9",
-      "mac": "12:23:34:45:56:67",
-      "modelId": 2
     }
   ],
   "models": [
