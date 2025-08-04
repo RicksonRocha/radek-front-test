@@ -15,6 +15,7 @@ import { TrashIcon } from "@components/icons/trash";
 import * as styles from "./styles/central-page.css";
 import { CentralPageProps } from "./types";
 import { theme } from "@components/styles/theme/theme.css";
+import { FormError } from "@components/core/form/form-error";
 
 export const CentralsPageView = (props: CentralPageProps) => {
   const {
@@ -52,7 +53,7 @@ export const CentralsPageView = (props: CentralPageProps) => {
         <Title.Text>Lista de centrais</Title.Text>
       </Title.Root>
       <div>
-        <Button startIcon={<PlusIcon customSize="lg" />} onClick={handleCreate}>
+        <Button startIcon={<PlusIcon customSize="sm" />} onClick={handleCreate}>
           Criar central
         </Button>
       </div>
@@ -68,9 +69,7 @@ export const CentralsPageView = (props: CentralPageProps) => {
                 style={{ padding: 8, borderRadius: 8 }}
               />
               {errors?.search && (
-                <p style={{ color: "red", fontSize: 12 }}>
-                  {errors?.search.message}
-                </p>
+                <FormError>{errors?.search.message}</FormError>
               )}
             </div>
             <Button type="submit" startIcon={<SearchIcon customSize="14" />}>
@@ -85,70 +84,74 @@ export const CentralsPageView = (props: CentralPageProps) => {
           </div>
         </form>
 
-        {noData && "Não há centrais cadastradas"}
-
         {centralsQuery.isLoading || modelsQuery.isLoading ? (
           <Table.Skeleton></Table.Skeleton>
         ) : (
           <>
-            <Scrollbar>
-              <Table.Root>
-                <Table.Header>
-                  <Table.Row>
-                    {TABLE_HEADS.map((th) => (
-                      <Table.Head key={th.id}>{th.name}</Table.Head>
-                    ))}
-                  </Table.Row>
-                </Table.Header>
+            {noData ? (
+              <p style={{ padding: "12px 0" }}>Não há centrais cadastradas</p>
+            ) : (
+              <>
+                <Scrollbar>
+                  <Table.Root>
+                    <Table.Header>
+                      <Table.Row>
+                        {TABLE_HEADS.map((th) => (
+                          <Table.Head key={th.id}>{th.name}</Table.Head>
+                        ))}
+                      </Table.Row>
+                    </Table.Header>
 
-                <Table.Body>
-                  {sortedData.map((central, index) => (
-                    <Table.Row key={index}>
-                      <Table.Data>{central.name}</Table.Data>
-                      <Table.Data>{central.mac}</Table.Data>
-                      <Table.Data>
-                        {MODELS_MAP.get(central.modelId) as string}
-                      </Table.Data>
-                      <Table.Data
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "center",
-                          gap: 8,
-                        }}
-                      >
-                        <Button
-                          onClick={() => handleEdit(central)}
-                          style={{ fontWeight: "bold" }}
-                          startIcon={<EditIcon customSize="lg" />}
-                        >
-                          Editar
-                        </Button>
-                        <Button
-                          style={{ fontWeight: "bold" }}
-                          onClick={() => {
-                            setDeleteId(central.id);
-                            setIsOpen(true);
-                          }}
-                          startIcon={<TrashIcon customSize="lg" />}
-                        >
-                          Excluir
-                        </Button>
-                      </Table.Data>
-                    </Table.Row>
-                  ))}
-                </Table.Body>
-              </Table.Root>
-            </Scrollbar>
+                    <Table.Body>
+                      {sortedData.map((central, index) => (
+                        <Table.Row key={index}>
+                          <Table.Data>{central.name}</Table.Data>
+                          <Table.Data>{central.mac}</Table.Data>
+                          <Table.Data>
+                            {MODELS_MAP.get(central.modelId) as string}
+                          </Table.Data>
+                          <Table.Data
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              justifyContent: "center",
+                              gap: 8,
+                            }}
+                          >
+                            <Button
+                              onClick={() => handleEdit(central)}
+                              style={{ fontWeight: "bold" }}
+                              startIcon={<EditIcon customSize="lg" />}
+                            >
+                              Editar
+                            </Button>
+                            <Button
+                              style={{ fontWeight: "bold" }}
+                              onClick={() => {
+                                setDeleteId(central.id);
+                                setIsOpen(true);
+                              }}
+                              startIcon={<TrashIcon customSize="lg" />}
+                            >
+                              Excluir
+                            </Button>
+                          </Table.Data>
+                        </Table.Row>
+                      ))}
+                    </Table.Body>
+                  </Table.Root>
+                </Scrollbar>
 
-            <Table.Pagination
-              page={page}
-              totalPages={totalPages}
-              onPreviousPage={handlePreviousPage}
-              onNextPage={handleNextPage}
-              onChangeRowsPerPage={handleChangeRowsPerPage}
-              onSort={handleSort}
-            />
+                <Table.Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  onPreviousPage={handlePreviousPage}
+                  onNextPage={handleNextPage}
+                  onChangeRowsPerPage={handleChangeRowsPerPage}
+                  onSort={handleSort}
+                />
+              </>
+            )}
           </>
         )}
       </Card>

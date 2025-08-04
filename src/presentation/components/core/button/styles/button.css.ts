@@ -19,4 +19,5 @@ export const buttonStyles = style({
       color: "#000",
     },
   },
+  maxHeight: 28,
 });

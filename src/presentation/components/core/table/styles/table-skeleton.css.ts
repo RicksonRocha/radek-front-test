@@ -1,3 +1,4 @@
+import { theme } from "@components/styles/theme/theme.css";
 import { style, keyframes } from "@vanilla-extract/css";
 
 const pulse = keyframes({
@@ -8,9 +9,9 @@ const pulse = keyframes({
 
 export const tableSkeletonStyles = {
   th: style({
-    backgroundColor: "#38a169", // verde vibrante
+    backgroundColor: theme.colors.actionRipple,
     color: "white",
-    padding: "0.75rem",
+    padding: "2rem",
     textAlign: "left",
     borderRadius: "8px 8px 0 0",
   }),
@@ -19,9 +20,10 @@ export const tableSkeletonStyles = {
     ":last-child": {
       borderBottom: "none",
     },
+    gap: 12,
   }),
   tdSkeleton: style({
-    height: "1.5rem",
+    padding: "3rem 0",
     borderRadius: "4px",
     animation: `${pulse} 1.5s ease-in-out infinite`,
     backgroundColor: "#e0e0e0",

@@ -8,6 +8,7 @@ import { ChevronLeftIcon } from "@components/icons/chevron-left";
 import { theme } from "@components/styles/theme/theme.css";
 import * as styles from "./styles/central-form.css";
 import { CentralFormViewProps } from "./types";
+import { FormError } from "@components/core/form/form-error";
 
 export const CentralFormViewPage = (props: CentralFormViewProps) => {
   const { centralId, handleBack, onSubmit, formMethods, modelsQuery, style } =
@@ -48,11 +49,7 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
         >
           <label>Nome:</label>
           <input {...register("name")} style={style.input} />
-          {errors.name && (
-            <p style={{ color: "red", fontSize: 12, fontWeight: "bolder" }}>
-              {errors.name.message}
-            </p>
-          )}
+          {errors.name && <FormError>{errors.name.message}</FormError>}
 
           <label>MAC:</label>
           <input
@@ -60,7 +57,7 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
             placeholder="Ex: 01:23:45:67:89:AB"
             style={style.input}
           />
-          {errors.mac && <p style={{ color: "red" }}>{errors.mac.message}</p>}
+          {errors.mac && <FormError>{errors.mac.message}</FormError>}
 
           <label>Modelo:</label>
           <select
@@ -74,9 +71,7 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
               </option>
             ))}
           </select>
-          {errors.modelId && (
-            <p style={{ color: "red" }}>{errors.modelId.message}</p>
-          )}
+          {errors.modelId && <FormError>{errors.modelId.message}</FormError>}
 
           <div>
             <Button
