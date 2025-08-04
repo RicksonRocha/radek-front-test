@@ -7,7 +7,7 @@ export const CENTRAL_SCHEMA = z.object({
     .min(1, "MAC é obrigatório")
     .regex(
       /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/,
-      "MAC inválido. Formato esperado: XX:XX:XX:XX:XX:XX"
+      "MAC inválido. Formato esperado com hexadecimais: XX:XX:XX:XX:XX:XX"
     ),
   modelId: z.number().min(1, "Modelo é obrigatório"),
 });

@@ -47,20 +47,22 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
             backgroundColor: theme.colors.success,
           }}
         >
-          <label>Nome:</label>
-          <input {...register("name")} style={style.input} />
+          <label htmlFor="name">Nome:</label>
+          <input id="name" {...register("name")} style={style.input} />
           {errors.name && <FormError>{errors.name.message}</FormError>}
 
-          <label>MAC:</label>
+          <label htmlFor="mac">MAC:</label>
           <input
+            id="mac"
             {...register("mac")}
             placeholder="Ex: 01:23:45:67:89:AB"
             style={style.input}
           />
           {errors.mac && <FormError>{errors.mac.message}</FormError>}
 
-          <label>Modelo:</label>
+          <label htmlFor="modelId">Modelo:</label>
           <select
+            id="modelId"
             {...register("modelId", { valueAsNumber: true })}
             style={style.input}
           >
