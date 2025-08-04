@@ -65,7 +65,7 @@ export const CentralsPageView = (props: CentralPageProps) => {
               <input
                 type="text"
                 {...register("search")}
-                placeholder="Digite o nome ou modelo..."
+                placeholder="Digite o nome..."
                 style={{ padding: 8, borderRadius: 8 }}
               />
               {errors?.search && (

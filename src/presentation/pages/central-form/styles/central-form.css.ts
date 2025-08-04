@@ -10,3 +10,19 @@ export const containerPage = style({
   flexDirection: "column",
   gap: "3rem",
 });
+
+export const formStyles = style({
+  maxWidth: "50%",
+  minWidth: "100",
+  display: "flex",
+  flexDirection: "column",
+  gap: 12,
+  padding: 24,
+  borderRadius: 12,
+  backgroundColor: theme.colors.success,
+});
+
+export const formInputStyles = style({
+  borderRadius: 12,
+  padding: 12,
+});

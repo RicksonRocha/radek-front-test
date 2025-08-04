@@ -22,7 +22,6 @@ export const useCentralFormHook = () => {
   const saveMutation = useSaveCentralMutation();
   const editMutation = useEditCentralMutation();
   const modelsQuery = useModelsQuery({ _page: 1, _per_page: 10 });
-  const style = { input: { borderRadius: 12, padding: 12 } };
 
   const formMethods = useForm<CentralFormValue>({
     resolver: zodResolver(CENTRAL_SCHEMA),
@@ -58,6 +57,5 @@ export const useCentralFormHook = () => {
     handleBack,
     formMethods,
     modelsQuery,
-    style,
   };
 };

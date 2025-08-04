@@ -11,8 +11,7 @@ import { CentralFormViewProps } from "./types";
 import { FormError } from "@components/core/form/form-error";
 
 export const CentralFormViewPage = (props: CentralFormViewProps) => {
-  const { centralId, handleBack, onSubmit, formMethods, modelsQuery, style } =
-    props;
+  const { centralId, handleBack, onSubmit, formMethods, modelsQuery } = props;
   const {
     handleSubmit,
     register,
@@ -34,21 +33,13 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
       </div>
 
       <Card>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{
-            maxWidth: "50%",
-            minWidth: "100",
-            display: "flex",
-            flexDirection: "column",
-            gap: 12,
-            padding: 24,
-            borderRadius: 12,
-            backgroundColor: theme.colors.success,
-          }}
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.formStyles}>
           <label htmlFor="name">Nome:</label>
-          <input id="name" {...register("name")} style={style.input} />
+          <input
+            id="name"
+            {...register("name")}
+            className={styles.formInputStyles}
+          />
           {errors.name && <FormError>{errors.name.message}</FormError>}
 
           <label htmlFor="mac">MAC:</label>
@@ -56,7 +47,7 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
             id="mac"
             {...register("mac")}
             placeholder="Ex: 01:23:45:67:89:AB"
-            style={style.input}
+            className={styles.formInputStyles}
           />
           {errors.mac && <FormError>{errors.mac.message}</FormError>}
 
@@ -64,7 +55,7 @@ export const CentralFormViewPage = (props: CentralFormViewProps) => {
           <select
             id="modelId"
             {...register("modelId", { valueAsNumber: true })}
-            style={style.input}
+            className={styles.formInputStyles}
           >
             <option value={0}>Selecione o modelo</option>
             {modelsQuery.data?.data.map((model) => (
