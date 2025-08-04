@@ -4,11 +4,10 @@ import { Title } from "@components/core/title";
 
 import { Button } from "@components/core/button";
 import { Card } from "@components/core/card";
+import { FormError } from "@components/core/form/form-error";
 import { ChevronLeftIcon } from "@components/icons/chevron-left";
-import { theme } from "@components/styles/theme/theme.css";
 import * as styles from "./styles/central-form.css";
 import { CentralFormViewProps } from "./types";
-import { FormError } from "@components/core/form/form-error";
 
 export const CentralFormViewPage = (props: CentralFormViewProps) => {
   const { centralId, handleBack, onSubmit, formMethods, modelsQuery } = props;
