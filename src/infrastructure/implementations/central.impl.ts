@@ -21,7 +21,7 @@ export const CentralRepository: ICentralRepository = {
     return data;
   },
   edit: async (id, central: CentralFormValue): Promise<void> => {
-    const { data } = await api.post(`${centrals}/${id}`, central);
+    const { data } = await api.put(`${centrals}/${id}`, central);
     return data;
   },
   delete: async (id): Promise<void> => {

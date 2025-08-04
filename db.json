@@ -43,76 +43,10 @@
       "modelId": 2
     },
     {
-      "id": "8273",
-      "name": "Central 8",
+      "name": "Central 8.1.1",
       "mac": "12:23:34:45:56:67",
-      "modelId": 2
-    },
-    {
-      "id": "260e",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "b94d",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "bb3e",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "4a76",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "483a",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "03c0",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "95c5",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "ebb8",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "552e",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "d52d",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
-    },
-    {
-      "id": "15b5",
-      "name": "Central teste",
-      "mac": "10:E0:09:00:50:00",
-      "modelId": 4
+      "modelId": 6,
+      "id": "8273"
     }
   ],
   "models": [

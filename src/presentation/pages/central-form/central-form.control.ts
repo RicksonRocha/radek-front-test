@@ -37,6 +37,7 @@ export const useCentralFormHook = () => {
     } else {
       saveMutation.mutate(data);
     }
+    handleBack();
   };
 
   const handleBack = () => {
